@@ -1,3 +1,11 @@
+*.wav
+*.hea
+*.tsv
+*.csv
+balanceando_dados.ipynb
+*.7z
+*.npy
+*.ckpt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
