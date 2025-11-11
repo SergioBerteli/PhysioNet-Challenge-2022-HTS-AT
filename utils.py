@@ -22,6 +22,7 @@ from tqdm import tqdm
 from scipy import stats
 import torch.nn as nn
 import torch.nn.functional as F
+import drive.MyDrive.tcc_colab.circor_murmur_config as config
 
 
 # import from https://github.com/Alibaba-MIIL/ASL/blob/main/src/loss_functions/losses.py
@@ -123,7 +124,7 @@ def clip_bce(pred, target):
 
 
 def clip_ce(pred, target):
-    return F.cross_entropy(pred, target)
+    return F.cross_entropy(pred, target, weight=torch.tensor(config.loss_weights).to(torch.device('cuda')))
 
 def d_prime(auc):
     d_prime = stats.norm().ppf(auc) * np.sqrt(2.0)

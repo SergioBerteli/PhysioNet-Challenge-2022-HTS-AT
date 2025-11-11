@@ -28,9 +28,9 @@ debug = False
 
 random_seed = 970131 # 19970318 970131 12412 127777 1009 34047
 batch_size = 64 # batch size per GPU x GPU number , default is 32 x 4 = 128
-learning_rate = 1e-3 # 1e-4 also workable 
+learning_rate = 1e-4 # 1e-4 also workable 
 max_epoch = 100
-num_workers = 3
+num_workers = 2
 
 lr_scheduler_epoch = [10,20,30]
 lr_rate = [0.02, 0.05, 0.1]
@@ -130,3 +130,6 @@ fl_audioset_mapping = [
 ]
 
 n_audio_clips = 50
+
+#loss_weights = None
+loss_weights = [1, 1, 2.7] # pesos especificos para balancear o conjunto de dados para classificação da presença de de sopros cardíacos

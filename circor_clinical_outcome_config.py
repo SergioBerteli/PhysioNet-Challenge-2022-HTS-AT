@@ -12,7 +12,7 @@ dataset_type = "esc-50" # "audioset" "esc-50" "scv2"
 index_type = "full_train" # only works for audioset
 balanced_data = True # only works for audioset
 
-loss_type = "clip_ce" # 
+loss_type = "clip_bce" # 
 # AudioSet & SCV2: "clip_bce" |  ESC-50: "clip_ce" 
 
 # trained from a checkpoint, or evaluate a single model 
@@ -28,9 +28,9 @@ debug = False
 
 random_seed = 970131 # 19970318 970131 12412 127777 1009 34047
 batch_size = 64 # batch size per GPU x GPU number , default is 32 x 4 = 128
-learning_rate = 1e-3 # 1e-4 also workable 
+learning_rate = 1e-4 # 1e-4 also workable 
 max_epoch = 100
-num_workers = 3
+num_workers = 2
 
 lr_scheduler_epoch = [10,20,30]
 lr_rate = [0.02, 0.05, 0.1]
@@ -53,7 +53,7 @@ enable_tscam = True # enbale the token-semantic layer
 
 # for signal processing
 sample_rate = 32000 # 16000 for scv2, 32000 for audioset and esc-50
-clip_samples = sample_rate * 10 # audio_set 10-sec clip
+clip_samples = sample_rate * 3 # audio_set 10-sec clip
 window_size = 1024
 hop_size = 320 # 160 for scv2, 320 for audioset and esc-50
 mel_bins = 64
@@ -62,7 +62,7 @@ fmax = 14000
 shift_max = int(clip_samples * 0.5)
 
 # for data collection
-classes_num = 2 # esc: 50 | audioset: 527 | scv2: 35
+classes_num = 1 # esc: 50 | audioset: 527 | scv2: 35
 patch_size = (25, 4) # deprecated
 crop_size = None # int(clip_samples * 0.5) deprecated
 
